@@ -19,7 +19,9 @@ Route::get('/about', function () {
 });
 
 Route::get('/', 'App\Http\Controllers\PagesController@index');
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('posts', 'App\Http\Controllers\PostsController');
+
