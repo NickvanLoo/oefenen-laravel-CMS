@@ -16,6 +16,9 @@
                   <li class="nav-item">
                     <a class="nav-link " href="/about">Over ons</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/posts">Blog</a>
+                  </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
