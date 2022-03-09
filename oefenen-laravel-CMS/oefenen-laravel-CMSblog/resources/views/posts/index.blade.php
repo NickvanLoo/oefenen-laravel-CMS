@@ -5,9 +5,11 @@
     @if (count($posts) > 0)
      @foreach ($posts as $post)
         <div class="jumbotron">
-            <h3>{{$post->title}}</h3>
+            <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
             <small>Geschreven op {{$post->created_at}}</small>
+        </div>
      @endforeach
+     {{$posts->links('pagination::bootstrap-5')}}
     @else
        <p>Er zijn geen posts gevonden</p> 
     @endif
