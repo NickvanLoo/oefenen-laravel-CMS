@@ -30,5 +30,10 @@
             </div>
         </main>
     </div>
+
+    <script src="https://cdn.ckeditor.com/4.17.2/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('body');
+    </script>
 </body>
 </html>

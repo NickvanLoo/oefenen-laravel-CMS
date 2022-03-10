@@ -23,6 +23,10 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
+
+                <li>
+                    <a class="nav-link" href="/posts/create">Create Post</a>
+                </li>
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
