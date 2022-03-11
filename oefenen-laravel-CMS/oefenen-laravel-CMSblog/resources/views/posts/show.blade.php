@@ -7,7 +7,7 @@
         {!!$post->body!!}
     </div>
     <hr>
-    <small>Geschreven op {{$post->created_at}}</small>
+    <small>Geschreven op {{$post->created_at}} door {{$post->user->name}}</small>
     <hr>
     <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
 
