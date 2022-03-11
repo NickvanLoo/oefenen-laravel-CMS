@@ -24,9 +24,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
 
-                <li>
-                    <a class="nav-link" href="/posts/create">Create Post</a>
-                </li>
+               
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
@@ -47,6 +45,8 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/home">Dashboard</a>
+                            
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
