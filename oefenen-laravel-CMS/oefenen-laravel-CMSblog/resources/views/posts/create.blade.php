@@ -3,7 +3,7 @@
 @section('content')
     <h1>Maak een post</h1>
 
-    {{Form::open(['action' => 'App\Http\Controllers\PostsController@store', 'method' => 'POST'])}}
+    {{Form::open(['action' => 'App\Http\Controllers\PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data'])}}
 
     <div class="form-group">
         {{Form::label('title', 'Title')}}
@@ -13,6 +13,10 @@
     <div class="form-group">
         {{Form::label('body', 'Body')}}
         {{Form::textarea('body', '', ['id'=>'body' ,'class' => 'form-control', 'placeholder' => 'Body Text'])}}
+    </div>
+
+    <div class="form-group">
+        {{Form::file('cover_image')}}
     </div>
 
     {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
