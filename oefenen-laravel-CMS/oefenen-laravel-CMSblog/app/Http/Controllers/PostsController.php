@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -44,10 +45,22 @@ class PostsController extends Controller
             'body' => 'required'
         ]);
 
+        if($request->hasFile('cover_image')){
+          
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            $filenameToStore = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $filenameToStore);
+        } else {
+           $filenameToStore = 'no_image.jpg'; 
+        }
+
         $post = new Post();
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
+        $post->cover_image = $filenameToStore;
         $post->save();
 
         return redirect('/posts')->with('success', 'Post is succesvol aangemaakt!!!');
